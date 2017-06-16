@@ -1,0 +1,19 @@
+
+<div class="tl_error tl_permalert" id="cachereminder" style="display:none;">
+<form action="contao/main.php?do=maintenance&amp;ref=<?=TL_REFERER_ID?>" class="tl_form" method="post">
+    <input type="hidden" name="FORM_SUBMIT" value="tl_purge">
+    <input type="hidden" name="REQUEST_TOKEN" value="<?=REQUEST_TOKEN?>">
+    <input type="hidden" name="purge[folders][]" value="pages">
+    <input type="hidden" name="purge[folders][]" value="scripts">
+    <input type="hidden" name="purge[folders][]" value="images">
+    <button class="tl_submit" style="font-size:12px;font-family:'Trebuchet MS',Verdana,sans-serif;float: right;margin: 1px 3px 0 24px;color: #555;"><?=$GLOBALS['TL_LANG']['cacheReminder']['button']?></button>
+</form>
+<?=$GLOBALS['TL_LANG']['cacheReminder']['reminder']?>
+    <div style="clear:both;"></div>
+</div>
+<script type="text/javascript">
+    window.addEvent('domready', function() {
+        $('cachereminder').setStyle('display','');
+        $('cachereminder').inject($$('#header>.collapsible_area')[0]);
+    });
+</script>
